@@ -1,0 +1,58 @@
+/* Customized styles for a unique project */
+
+main {
+  min-height: 90vh; /* Slightly increase the minimum height */
+}
+
+.rating span {
+  margin: 0.2rem; /* Increase margin for a unique look */
+}
+
+.rating svg {
+  color: #4caf50; /* Change the color to a green shade */
+}
+
+.rating-text {
+  font-size: 1rem; /* Increase font size for emphasis */
+  font-weight: 700; /* Make it bolder */
+  padding-left: 0.8rem; /* Add more padding for a stylish touch */
+}
+
+.product-title {
+  height: 3em; /* Adjust the fixed height */
+}
+
+table td,
+table th {
+  text-align: center;
+  color: #2196f3; /* Set a new color for table text */
+}
+
+.review {
+  margin-top: 40px; /* Increase top margin for spacing */
+}
+
+.review h2 {
+  font-size: 28px; /* Increase font size for the review heading */
+  background: #ff9800; /* Change the background color to orange */
+  padding: 15px; /* Increase padding for better aesthetics */
+  border: 2px solid #ff5722; /* Add a border with a different color */
+}
+
+.review button {
+  margin-top: 15px; /* Adjust top margin for the button */
+  background-color: #e91e63; /* Change button color to pink */
+  color: #fff; /* Set text color to white */
+  padding: 8px 16px; /* Add padding for a better button appearance */
+  border: none; /* Remove border for a clean look */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+}
+
+.carousel-caption {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 10px; /* Adjust bottom position for better visibility */
+  background: rgba(63, 81, 181, 0.8); /* Change the background color and opacity */
+}
