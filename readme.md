@@ -1,5 +1,7 @@
 # Tensen-E-Mart eCommerce Platform 
 
+### Live Hosted at https://tensen-e-mart-fis0.onrender.com/
+
 ### Previous Repo
 
 Due to an accidental push of the frontend/src directory to another repository, the original repository is no longer functional. Please use the following link for the correct repository: [https://github.com/pranayharishchandra/Tensen-E-Mart-2](https://github.com/pranayharishchandra/Tensen-E-Mart-2).
