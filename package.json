@@ -1,5 +1,5 @@
 {
-  "name": "proshop2",
+  "name": "Tensen-E-Mart-2",
   "version": "2.0.0",
   "type": "module",
   "description": "Ecommerce application built with the MERN stack",
@@ -14,8 +14,7 @@
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "generate-toc": "markdown-toc -i readme.md"
   },
-  "author": "Brad Traversy",
-  "license": "MIT",
+  "author": "Pranay Harishchandra",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
