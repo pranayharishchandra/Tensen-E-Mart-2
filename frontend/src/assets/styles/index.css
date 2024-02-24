@@ -54,5 +54,46 @@ table th {
   left      : 0;
   right     : 0;
   bottom    : 10px;                    /* Adjust bottom position for better visibility */
-  background: rgba(63, 81, 181, 0.8);  /* Change the background color and opacity */
+  background: rgba(108, 181, 63, 0.8);  /* Change the background color and opacity */
+}
+
+.brand-name {
+  margin-left: 3px;
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.custom-navbar {
+  background-color: rgba(43, 195, 255, 0.9);
+  color: black;
+  height: 70px;
+}
+
+@media (max-width: 984px) {
+  .custom-navbar {
+    height: auto;
+  }
+}
+
+.toggle-button {
+  color:black
+}
+
+.toggle-button {
+  background-color: #fff; /* Set background color */
+  color: #333; /* Set text color */
+  border: 1px solid #ccc; /* Add border */
+  padding: 5px 10px; /* Add padding */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.toggle-button:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+}
+
+.badge {
+  background-color: 'yellow';
+  color: 'white';
+  margin: 0px 3px ;
 }

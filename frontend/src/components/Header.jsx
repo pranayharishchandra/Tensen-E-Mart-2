@@ -13,7 +13,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import SearchBox from './SearchBox';
-import logo from '../assets/logo.png';
 
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
@@ -24,12 +23,12 @@ import lionSvg from "../assets/lion.svg"
 const Header = () => {
   // state refers to the Redux store state
   const { cartItems } = useSelector((state) => state.cart);
-  const { userInfo }  = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [logoutApiCall] =    useLogoutMutation();
+  const [logoutApiCall] = useLogoutMutation();
 
   const logoutHandler = async () => {
     try {
@@ -46,31 +45,37 @@ const Header = () => {
 
   return (
     <header>
-      {/* variant dark to make text white/grey | light: text-black  */}
-      <Navbar bg='info' variant='dark' expand='lg' collapseOnSelect>
+      {/* variant 'dark' to make text white/grey | 'light': text-black  */}
+      <Navbar className='custom-navbar' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
               {/* give svg in image otherwise path will come writing directly like {lionSvg} */}
               <img src={lionSvg} width={40} height={40} alt='Tensen-E-Mart' />
-              Tensen-E-Mart
+              <span className='brand-name'>Tensen-E-Mart</span>
             </Navbar.Brand>
           </LinkContainer>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+
+          <Navbar.Toggle className='toggle-button' />
+          
           <Navbar.Collapse id='basic-navbar-nav'>
+
+            {/* Nav is just a bootstrap container, ms-auto is bootstrap class for aligning to right (margin-start) */}
             <Nav className='ms-auto'>
+
               <SearchBox />
+
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <FaShoppingCart /> Cart
                   {/* pill -> badge circle (default rectangle) */}
                   {cartItems.length > 0 && (
-                    <Badge pill bg='success' style={{ marginLeft: '5px' }}>
+                    <Badge pill className='badge'>
                       {cartItems.reduce((a, c) => a + c.qty, 0)}
-                    </Badge>
-                  )}
+                    </Badge>)}
                 </Nav.Link>
               </LinkContainer>
+
               {userInfo ? (
                 <>
                   <NavDropdown title={userInfo.name} id='username'>
@@ -91,7 +96,7 @@ const Header = () => {
               )}
 
               {/* Admin Links */}
-              {userInfo && userInfo.isAdmin && (
+              {userInfo?.isAdmin && (
                 <NavDropdown title='Admin' id='adminmenu'>
                   <LinkContainer to='/admin/productlist'>
                     <NavDropdown.Item>Products</NavDropdown.Item>
@@ -126,6 +131,8 @@ A slice in Redux Toolkit is a container for managing state and actions in Redux.
 * collapseOnSelect
 The collapseOnSelect prop in the Navbar component from react-bootstrap allows the Navbar to automatically close its mobile menu when a NavItem is selected. This behavior is useful for improving user experience on mobile devices where space is limited, ensuring that the menu collapses after an item is selected.
 
+* bg
+primary, success, danger, warning, info, light, dark
  */
 
 /** QUESTIONS: 

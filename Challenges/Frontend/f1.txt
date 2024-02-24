@@ -1,0 +1,20 @@
+Header.jsx ===================================
+
+1. you cannot directly remove the Nav.Link component from the LinkContainer without causing an error. The LinkContainer component from react-router-bootstrap expects to receive a single React element child, so you need to ensure that the structure is correct. If you want to remove Nav.Link, you may need to adjust the structure to comply with the expected format.
+- not wrapping with div, otherwise bootstrap styling will not be applied
+
+❌
+<LinkContainer to='/login'>
+    <FaUser /> Sign In
+</LinkContainer>
+
+✅
+<LinkContainer to='/login'>
+  <Nav.Link>
+    <FaUser /> Sign In
+  </Nav.Link>
+</LinkContainer>
+
+2.
+
+
