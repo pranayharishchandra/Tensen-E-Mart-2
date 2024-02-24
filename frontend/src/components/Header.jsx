@@ -52,8 +52,8 @@ const Header = () => {
           <LinkContainer to='/'>
             <Navbar.Brand>
               {/* give svg in image otherwise path will come writing directly like {lionSvg} */}
-              <img src={lionSvg} width={40} height={40} alt='Tensen-E-Mart' />
-              <span className='brand-name'>Tensen-E-Mart</span>
+              {/* <img src={lionSvg} width={40} height={40} alt='TensenMart' /> */}
+              <span className='brand-name'>TensenMart</span>
             </Navbar.Brand>
           </LinkContainer>
 

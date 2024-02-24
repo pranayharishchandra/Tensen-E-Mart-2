@@ -34,10 +34,12 @@ const HomeScreen = () => {
         <Message variant='danger'>
           {error?.data?.message || error.error}
         </Message>
-      ) : (
+      ) 
+      : 
+      (
         <>
           <Meta />
-          <h1>Latest Products</h1>
+          <h1>All Products</h1>
           <Row>
             {data.products.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
@@ -45,11 +47,13 @@ const HomeScreen = () => {
               </Col>
             ))}
           </Row>
+
           <Paginate
             pages={data.pages}
             page={data.page}
             keyword={keyword ? keyword : ''}
           />
+
         </>
       )}
     </>

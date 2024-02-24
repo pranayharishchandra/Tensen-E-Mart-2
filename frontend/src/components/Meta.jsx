@@ -11,9 +11,15 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: 'Tensen-E-Mart',
+  title: 'TensenMart',
   description: 'We sell the best products for cheap',
   keywords: 'electronics, buy electronics, cheap electroincs',
 };
 
 export default Meta;
+
+/**
+ * Helmet is used in React applications to manage the document head. It allows you to dynamically set the title, meta tags, and other elements in the &lt;head&gt; section of your HTML document based on the current state of your React components. This is useful for SEO optimization and managing metadata for each page in your application.
+
+ * 
+ */
