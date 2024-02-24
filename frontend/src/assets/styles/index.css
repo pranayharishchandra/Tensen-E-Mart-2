@@ -97,3 +97,20 @@ table th {
   color: 'white';
   margin: 0px 3px ;
 }
+
+.search-button {
+  background: rgba(108, 181, 63, 0.8);  /* Change the background color and opacity */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(69, 114, 41);
+  
+}
+
+.search-button:hover{
+  background: rgb(53, 154, 63);  /* Change the background color and opacity */
+}
+
+.search-box {
+  height: 35px;
+}

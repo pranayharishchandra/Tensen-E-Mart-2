@@ -23,13 +23,14 @@ import lionSvg from "../assets/lion.svg"
 const Header = () => {
   // state refers to the Redux store state
   const { cartItems } = useSelector((state) => state.cart);
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo }  = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [logoutApiCall] = useLogoutMutation();
 
+  // REDUX-STORE
   const logoutHandler = async () => {
     try {
       await logoutApiCall().unwrap();

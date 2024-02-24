@@ -11,7 +11,9 @@ import Meta from '../components/Meta';
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();
+  console.log(useParams())
 
+  // REDUX-STORE
   const { data, isLoading, error } = useGetProductsQuery({
     keyword,
     pageNumber,
