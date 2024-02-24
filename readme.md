@@ -59,11 +59,11 @@ New Link: [https://github.com/pranayharishchandra/Tensen-E-Mart-2](https://githu
 Rename the `.env.example` file to `.env` and add the following
 
 ```
-NODE_ENV = development
-PORT = 5000
-MONGO_URI = your mongodb uri
-JWT_SECRET = 'abc123'
-PAYPAL_CLIENT_ID = your paypal client id
+NODE_ENV =
+PORT =
+MONGO_URI =
+JWT_SECRET =
+PAYPAL_CLIENT_ID =
 PAGINATION_LIMIT = 8
 ```
 
