@@ -1,18 +1,17 @@
-# TensenMart eCommerce Platform 
+# Tensen-E-Mart eCommerce Platform 
 
 This project is MERN Stack eCommerce Platform. It is a full-featured shopping cart with PayPal & credit/debit payments. 
 
-See it in action at [https://TensenMart.onrender.com/](https://TensenMart-fis0.onrender.com/)
+See it in action at [https://tensen-e-mart.onrender.com/](https://tensen-e-mart-fis0.onrender.com/)
 
 ### Previous Repo
 
-Due to an accidental push of the frontend/src directory to another repository, the original repository is no longer functional. Please use the following link for the correct repository: [https://github.com/pranayharishchandra/TensenMart-2](https://github.com/pranayharishchandra/TensenMart-2).
+Due to an accidental push of the frontend/src directory to another repository, the original repository is no longer functional. Please use the following link for the correct repository: [https://github.com/pranayharishchandra/Tensen-E-Mart-2](https://github.com/pranayharishchandra/Tensen-E-Mart-2).
 
 
-Old Link: [https://github.com/pranayharishchandra/TensenMart-1](https://github.com/pranayharishchandra/TensenMart-1)
+Old Link: [https://github.com/pranayharishchandra/Tensen-E-Mart-1](https://github.com/pranayharishchandra/Tensen-E-Mart-1)
 
-New Link: [https://github.com/pranayharishchandra/TensenMart-2](https://github.com/pranayharishchandra/TensenMart-2)
-
+New Link: [https://github.com/pranayharishchandra/Tensen-E-Mart-2](https://github.com/pranayharishchandra/Tensen-E-Mart-2)
 
 
 > eCommerce platform built with the MERN stack & Redux.
@@ -21,8 +20,6 @@ New Link: [https://github.com/pranayharishchandra/TensenMart-2](https://github.c
 <img src="./frontend/public/images/screens.png">
 -->
 
-
-This project is part of my MERN Stack From Scratch | eCommerce Platform course. It is a full-featured shopping cart with PayPal & credit/debit payments. See it in action at https://www.proshopdemo.dev
 
 <!-- toc -->
 
