@@ -88,8 +88,8 @@ const PlaceOrderScreen = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = $
-                          {(item.qty * (item.price * 100)) / 100}
+                          {item.qty} x ₹{Math.round(item.price * 80)} = ₹
+                          {(item.qty * Math.round(item.price * 80))}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -108,25 +108,25 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>₹{Math.round(cart.itemsPrice * 80)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>${cart.shippingPrice}</Col>
+                  <Col>₹{Math.round(cart.shippingPrice * 80)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Tax</Col>
-                  <Col>${cart.taxPrice}</Col>
+                  <Col>GST</Col>
+                  <Col>₹{Math.round(cart.taxPrice * 80)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>${cart.totalPrice}</Col>
+                  <Col>₹{Math.round(cart.totalPrice * 80)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>

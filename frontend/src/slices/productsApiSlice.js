@@ -71,3 +71,10 @@ export const {
   useCreateReviewMutation,
   useGetTopProductsQuery,
 } = productsApiSlice;
+
+
+
+/**
+ * No, useGetProductDetailsQuery is not a custom hook. It is a generated hook created by the builder.query method from the productsApiSlice.js file.
+ * 
+ */

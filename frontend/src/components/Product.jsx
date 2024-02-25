@@ -20,7 +20,7 @@ const Product = ({ product }) => {
                 text={`${product.numReviews}`}
               />
             </Card.Text>
-            <Card.Text as='h3'>${product.price}</Card.Text>
+            <Card.Text as='h3'>₹{Math.round(product.price * 80)}</Card.Text>
           </Card.Body>
         </Card>
       </Link>

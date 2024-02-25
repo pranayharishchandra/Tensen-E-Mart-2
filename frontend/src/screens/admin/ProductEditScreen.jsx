@@ -43,7 +43,7 @@ const ProductEditScreen = () => {
       await updateProduct({
         productId,
         name,
-        price,
+        price: price / 80,
         image,
         brand,
         category,
@@ -61,7 +61,7 @@ const ProductEditScreen = () => {
   useEffect(() => {
     if (product) {
       setName(product.name);
-      setPrice(product.price);
+      setPrice(product.price * 80);
       setImage(product.image);
       setBrand(product.brand);
       setCategory(product.category);

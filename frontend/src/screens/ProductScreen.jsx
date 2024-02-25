@@ -1,7 +1,10 @@
+// general
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { BsArrowLeft } from 'react-icons/bs';
+
+// bootstrap
 import {
   Row,
   Col,
@@ -11,16 +14,23 @@ import {
   Button,
   Form,
 } from 'react-bootstrap';
+
+
+// components
 import { toast } from 'react-toastify';
+import Rating  from '../components/Rating';
+import Loader  from '../components/Loader';
+import Message from '../components/Message';
+
+
+// slice
 import {
   useGetProductDetailsQuery,
   useCreateReviewMutation,
 } from '../slices/productsApiSlice';
-import Rating from '../components/Rating';
-import Loader from '../components/Loader';
-import Message from '../components/Message';
-import Meta from '../components/Meta';
 import { addToCart } from '../slices/cartSlice';
+
+import Meta from '../components/Meta';
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -68,11 +78,16 @@ const ProductScreen = () => {
   return (
     <>
       <Link className='btn btn-light my-3' to='/'>
-        Go Back
+      <BsArrowLeft /> Go Back
       </Link>
+
       {isLoading ? (
         <Loader />
-      ) : error ? (
+      ) : 
+      // if loading complete and you got error 
+      // CHALLENGE >-> error faced - there is a network error while fetching the product details or if the product ID is invalid or not found in the database.
+      // when there is an error during the execution of the useGetProductDetailsQuery(productId) hook, which is defined in the productsApiSlice.js file. This error message will be shown if there is an issue fetching the product details data from the API.
+      error ? (
         <Message variant='danger'>
           {error?.data?.message || error.error}
         </Message>
@@ -81,6 +96,7 @@ const ProductScreen = () => {
           <Meta title={product.name} description={product.description} />
           <Row>
             <Col md={6}>
+            {/* fluid property used with the Image component makes the image responsive by setting its width to 100% of its parent container. */}
               <Image src={product.image} alt={product.name} fluid />
             </Col>
             <Col md={3}>
@@ -94,7 +110,7 @@ const ProductScreen = () => {
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+                <ListGroup.Item>Price: ₹{product.price * 80}</ListGroup.Item>
                 <ListGroup.Item>
                   Description: {product.description}
                 </ListGroup.Item>
@@ -107,7 +123,7 @@ const ProductScreen = () => {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                        <strong>${product.price}</strong>
+                        <strong>₹{Math.round(product.price * 80)}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>

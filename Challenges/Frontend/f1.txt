@@ -15,6 +15,12 @@ Header.jsx ===================================
   </Nav.Link>
 </LinkContainer>
 
-2.
+2.RENAMING BRAND NAME ===================================
 
+First, remove the existing remote named "origin":
+
+git remote remove origin
+Then, add the new remote repository with the GitHub URL you provided:
+
+git remote add origin git@github.com:pranayharishchandra/Tensen-E-Mart-2.git
 

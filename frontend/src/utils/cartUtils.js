@@ -16,12 +16,12 @@ export const updateCart = (state) => {
   );
   state.itemsPrice = addDecimals(itemsPrice);
 
-  // Calculate the shipping price
-  const shippingPrice = itemsPrice > 100 ? 0 : 10;
+  // Calculate the shipping price - if greater than 80rs, no shipping charge
+  const shippingPrice = itemsPrice > 10 ? 0 : 1;
   state.shippingPrice = addDecimals(shippingPrice);
 
-  // Calculate the tax price
-  const taxPrice = 0.15 * itemsPrice;
+  // Calculate the tax price - GST = 18%
+  const taxPrice = 0.18 * itemsPrice;
   state.taxPrice = addDecimals(taxPrice);
 
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
