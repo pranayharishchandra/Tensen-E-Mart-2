@@ -86,6 +86,7 @@ const ProductScreen = () => {
       ) : 
       // if loading complete and you got error 
       // CHALLENGE >-> error faced - there is a network error while fetching the product details or if the product ID is invalid or not found in the database.
+      // http://localhost:3000/product/invalid
       // when there is an error during the execution of the useGetProductDetailsQuery(productId) hook, which is defined in the productsApiSlice.js file. This error message will be shown if there is an issue fetching the product details data from the API.
       error ? (
         <Message variant='danger'>
@@ -99,7 +100,11 @@ const ProductScreen = () => {
             {/* fluid property used with the Image component makes the image responsive by setting its width to 100% of its parent container. */}
               <Image src={product.image} alt={product.name} fluid />
             </Col>
+            {/* ->create a column with a width of 3 out of 12 columns for medium-sized screens. 
+            -> page will still be responsive even if specific column widths are not set for small screens. Bootstrap's grid system is designed to be responsive by default, so if you don't explicitly set column widths for small screens
+            */}
             <Col md={3}>
+              {/* variant = flush or horizontal */}
               <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <h3>{product.name}</h3>

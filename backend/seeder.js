@@ -49,9 +49,14 @@ const destroyData = async () => {
     process.exit(1);
   }
 };
-
+// '-d' is the 3rd arguement after filepaths
 if (process.argv[2] === '-d') {
   destroyData();
 } else {
   importData();
 }
+
+/**
+ * Using process.exit(1) in a MERN application should be done judiciously. It's typically used to handle critical errors where the application cannot recover and needs to stop. However, it's important to implement error handling and logging to gracefully handle errors without abruptly terminating the server, ensuring the stability and reliability of your application.
+ * 
+ */

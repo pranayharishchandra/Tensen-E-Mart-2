@@ -48,6 +48,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use(notFound);
 app.use(errorHandler);
 
+// The errorHandler middleware in the errorMiddleware.js file does not call next(), so the code execution will not proceed to the next middleware after it. This means that the code on line 51 in server.js that comes after app.use(errorHandler) will not be executed
 app.listen(port, () =>
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`)
 );
