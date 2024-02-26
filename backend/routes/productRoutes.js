@@ -12,7 +12,10 @@ import {
 import { protect, admin } from '../middleware/authMiddleware.js';
 import checkObjectId from '../middleware/checkObjectId.js';
 
+// CHALLENGE -> '/top' route if below is giving me error in crousel: Invalid ObjectId of: top
 router.route('/').get(getProducts).post(protect, admin, createProduct);
+
+router.get('/top', getTopProducts); // for crousel
 
 router
   .route('/:id')
@@ -22,6 +25,6 @@ router
 
 router.route('/:id/reviews').post(protect, checkObjectId, createProductReview);
 
-router.get('/top', getTopProducts);
+// router.get('/top', getTopProducts);
 
 export default router;
