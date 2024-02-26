@@ -2,16 +2,7 @@
 
 This project is MERN Stack eCommerce Platform. It is a full-featured shopping cart with PayPal & credit/debit payments. 
 
-See it in action at [https://tensen-e-mart.onrender.com/](https://tensen-e-mart-fis0.onrender.com/)
-
-### Previous Repo
-
-Due to an accidental push of the frontend/src directory to another repository, the original repository is no longer functional. Please use the following link for the correct repository: [https://github.com/pranayharishchandra/Tensen-E-Mart-2](https://github.com/pranayharishchandra/Tensen-E-Mart-2).
-
-
-Old Link: [https://github.com/pranayharishchandra/Tensen-E-Mart-1](https://github.com/pranayharishchandra/Tensen-E-Mart-1)
-
-New Link: [https://github.com/pranayharishchandra/Tensen-E-Mart-2](https://github.com/pranayharishchandra/Tensen-E-Mart-2)
+See it in action at [https://tensen-e-mart.onrender.com](https://tensen-e-mart-fis0.onrender.com/)
 
 
 > eCommerce platform built with the MERN stack & Redux.
@@ -67,7 +58,7 @@ PAYPAL_CLIENT_ID =
 PAGINATION_LIMIT = 8
 ```
 
-Change the JWT_SECRET and PAGINATION_LIMIT to what you want
+Change the PAGINATION_LIMIT to what you want
 
 ### Install Dependencies (frontend & backend)
 
@@ -81,7 +72,7 @@ npm install
 
 ```
 
-# Run frontend (:3000) & backend (:5000)
+# Run frontend (:3000) & backend (:5001)
 npm run dev
 
 # Run backend only
