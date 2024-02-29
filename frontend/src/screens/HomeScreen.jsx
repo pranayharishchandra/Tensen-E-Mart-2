@@ -60,3 +60,14 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+
+
+/**  using AXIOS VS REDUX-TOOLKIT
+ ==> if you were using "axios" then you need to use 
+ -> "useState"  for storing "products"
+ -> "useEffect" for fetching the data
+
+ ==> here we are using redux and life is simple
+ -> we are provided by: data, loading, error.
+ -> since you are already provided the fetched data so no need of using "useState or useEffect" hook.
+ */
