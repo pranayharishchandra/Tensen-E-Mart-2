@@ -12,8 +12,8 @@ const Meta = ({ title, description, keywords }) => {
 
 Meta.defaultProps = {
   title: 'TensenMart',
-  description: 'We sell the best products for cheap',
-  keywords: 'electronics, buy electronics, cheap electroincs',
+  description: 'We sell the best products at cheap price',
+  keywords: 'electronics, buy electronics, cheap electronics, best electronics',
 };
 
 export default Meta;

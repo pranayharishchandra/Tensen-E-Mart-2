@@ -1,14 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 // import { configureStore } from '@reduxjs/toolkit/query/react';
 import { apiSlice } from './slices/apiSlice';
-import cartSliceReducer from './slices/cartSlice';
-import authReducer from './slices/authSlice';
+
+import cartSliceReducer from './slices/cartSlice'; // export default cartSlice.reducer;
+import authReducer      from './slices/authSlice'; // export default authSlice.reducer;
 
 // just boilerplate code... learn as it is
 const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
-    cart: cartSliceReducer,
+    cart: cartSliceReducer, // now to access state of cart in a component like HomeScreen, "useSelector((state) => state.cart)"
     auth: authReducer,
   },
   middleware: (getDefaultMiddleware) =>

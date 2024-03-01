@@ -27,6 +27,8 @@ const HomeScreen = () => {
           Go Back
         </Link>
       )}
+
+
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -55,6 +57,7 @@ const HomeScreen = () => {
 
         </>
       )}
+      
     </>
   );
 };

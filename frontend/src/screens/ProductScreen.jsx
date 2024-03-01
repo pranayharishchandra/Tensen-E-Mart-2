@@ -18,9 +18,9 @@ import {
 
 // components
 import { toast } from 'react-toastify';
-import Rating  from '../components/Rating';
-import Loader  from '../components/Loader';
-import Message from '../components/Message';
+import Rating    from '../components/Rating';
+import Loader    from '../components/Loader';
+import Message   from '../components/Message';
 
 
 // slice
@@ -38,8 +38,8 @@ const ProductScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [qty, setQty] = useState(1);
-  const [rating, setRating] = useState(0);
+  const [qty, setQty]         = useState(1);
+  const [rating, setRating]   = useState(0);
   const [comment, setComment] = useState('');
 
   const addToCartHandler = () => {
@@ -73,7 +73,7 @@ const ProductScreen = () => {
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
-  };
+  }
 
   return (
     <>
@@ -101,24 +101,30 @@ const ProductScreen = () => {
               <Image src={product.image} alt={product.name} fluid />
             </Col>
             {/* ->create a column with a width of 3 out of 12 columns for medium-sized screens. 
-            -> page will still be responsive even if specific column widths are not set for small screens. Bootstrap's grid system is designed to be responsive by default, so if you don't explicitly set column widths for small screens
-            */}
+            -> page will still be responsive even if specific column widths are not set for small screens. 
+            Bootstrap's grid system is designed to be responsive by default, 
+            so if you don't explicitly set column widths for small screens */}
             <Col md={3}>
               {/* variant = flush or horizontal */}
+
               <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
+                
                 <ListGroup.Item>
                   <Rating
                     value={product.rating}
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
+                
                 <ListGroup.Item>Price: ₹{product.price * 80}</ListGroup.Item>
+                
                 <ListGroup.Item>
                   Description: {product.description}
                 </ListGroup.Item>
+                
               </ListGroup>
             </Col>
             <Col md={3}>
@@ -132,6 +138,7 @@ const ProductScreen = () => {
                       </Col>
                     </Row>
                   </ListGroup.Item>
+                  
                   <ListGroup.Item>
                     <Row>
                       <Col>Status:</Col>
@@ -140,6 +147,7 @@ const ProductScreen = () => {
                       </Col>
                     </Row>
                   </ListGroup.Item>
+                  
 
                   {/* Qty Select */}
                   {product.countInStock > 0 && (
@@ -163,6 +171,7 @@ const ProductScreen = () => {
                         </Col>
                       </Row>
                     </ListGroup.Item>
+                    
                   )}
 
                   <ListGroup.Item>
@@ -175,6 +184,7 @@ const ProductScreen = () => {
                       Add To Cart
                     </Button>
                   </ListGroup.Item>
+                  
                 </ListGroup>
               </Card>
             </Col>
@@ -184,6 +194,7 @@ const ProductScreen = () => {
               <h2>Reviews</h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ListGroup variant='flush'>
+
                 {product.reviews.map((review) => (
                   <ListGroup.Item key={review._id}>
                     <strong>{review.name}</strong>
@@ -192,6 +203,7 @@ const ProductScreen = () => {
                     <p>{review.comment}</p>
                   </ListGroup.Item>
                 ))}
+                
                 <ListGroup.Item>
                   <h2>Write a Customer Review</h2>
 
@@ -207,14 +219,15 @@ const ProductScreen = () => {
                           value={rating}
                           onChange={(e) => setRating(e.target.value)}
                         >
-                          <option value=''>Select...</option>
-                          <option value='1'>1 - Poor</option>
-                          <option value='2'>2 - Fair</option>
-                          <option value='3'>3 - Good</option>
+                          <option value=''> Select...    </option>
+                          <option value='1'>1 - Poor     </option>
+                          <option value='2'>2 - Fair     </option>
+                          <option value='3'>3 - Good     </option>
                           <option value='4'>4 - Very Good</option>
                           <option value='5'>5 - Excellent</option>
                         </Form.Control>
                       </Form.Group>
+
                       <Form.Group className='my-2' controlId='comment'>
                         <Form.Label>Comment</Form.Label>
                         <Form.Control
@@ -225,6 +238,7 @@ const ProductScreen = () => {
                           onChange={(e) => setComment(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
+
                       <Button
                         disabled={loadingProductReview}
                         type='submit'
@@ -232,13 +246,15 @@ const ProductScreen = () => {
                       >
                         Submit
                       </Button>
+
                     </Form>
                   ) : (
                     <Message>
-                      Please <Link to='/login'>sign in</Link> to write a review
+                      Please <Link to='/login'>SignIn</Link> to write a review
                     </Message>
                   )}
                 </ListGroup.Item>
+                
               </ListGroup>
             </Col>
           </Row>
