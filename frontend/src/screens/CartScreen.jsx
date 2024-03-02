@@ -36,6 +36,7 @@ const CartScreen = () => {
 
   return (
     <Row>
+      {/* shopping cart items and cart (card) => 8 : 4 */}
       <Col md={8}>
         <h1 style={{ marginBottom: '20px' }}>Shopping Cart</h1>
 

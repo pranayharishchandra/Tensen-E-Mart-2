@@ -8,7 +8,7 @@ import { logout } from './authSlice'; // Import the logout action
 // (A 401 response is an HTTP status code that indicates the client must authenticate itself to get the requested response. It is commonly used for unauthorized access attempts.)
 // https://redux-toolkit.js.org/rtk-query/usage/customizing-queries#customizing-queries-with-basequery
 // React Redux Toolkit RTK Query Tutorial | RTK Query CRUD | Data Fetching & Caching Tool - 1: https://youtu.be/vsxJSc-Q7CA
-// RTK Query CRUD | Mutations & Auto-Fetching | React Redux Toolkit RTK Query Tutorial - 2   : https://www.youtube.com/watch?v=3QLpHlmdW_U
+// RTK Query CRUD | Mutations & Auto-Fetching | React Redux Toolkit RTK Query Tutorial    - 2: https://www.youtube.com/watch?v=3QLpHlmdW_U
 
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,

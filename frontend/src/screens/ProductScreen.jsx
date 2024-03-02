@@ -127,6 +127,8 @@ const ProductScreen = () => {
                 
               </ListGroup>
             </Col>
+
+            
             <Col md={3}>
               <Card>
                 <ListGroup variant='flush'>
@@ -149,7 +151,7 @@ const ProductScreen = () => {
                   </ListGroup.Item>
                   
 
-                  {/* Qty Select */}
+                  {/* Qty Select can give at max what's in our stock */}
                   {product.countInStock > 0 && (
                     <ListGroup.Item>
                       <Row>
@@ -171,7 +173,6 @@ const ProductScreen = () => {
                         </Col>
                       </Row>
                     </ListGroup.Item>
-                    
                   )}
 
                   <ListGroup.Item>
@@ -191,8 +192,10 @@ const ProductScreen = () => {
           </Row>
           <Row className='review'>
             <Col md={6}>
+
               <h2>Reviews</h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
+
               <ListGroup variant='flush'>
 
                 {product.reviews.map((review) => (
@@ -209,6 +212,7 @@ const ProductScreen = () => {
 
                   {loadingProductReview && <Loader />}
 
+                  user only write the review when loggedin
                   {userInfo ? (
                     <Form onSubmit={submitHandler}>
                       <Form.Group className='my-2' controlId='rating'>
@@ -229,7 +233,9 @@ const ProductScreen = () => {
                       </Form.Group>
 
                       <Form.Group className='my-2' controlId='comment'>
+
                         <Form.Label>Comment</Form.Label>
+
                         <Form.Control
                           as='textarea'
                           row='3'
@@ -237,6 +243,7 @@ const ProductScreen = () => {
                           value={comment}
                           onChange={(e) => setComment(e.target.value)}
                         ></Form.Control>
+
                       </Form.Group>
 
                       <Button
