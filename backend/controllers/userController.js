@@ -11,7 +11,8 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    generateToken(res, user._id);
+    
+    generateToken(res, user._id); // generateToken.js for generating token
 
     res.json({
       _id: user._id,
@@ -64,7 +65,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // @access  Public
 const logoutUser = (req, res) => {
   res.cookie('jwt', '', {
-    httpOnly: true,
+    httpOnly: true, // This option restricts the cookie to be accessible only by the server and not by client-side scripts, enhancing security.
     expires: new Date(0),
   });
   res.status(200).json({ message: 'Logged out successfully' });

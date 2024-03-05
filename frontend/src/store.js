@@ -4,6 +4,7 @@ import { apiSlice } from './slices/apiSlice';
 
 import cartSliceReducer from './slices/cartSlice'; // export default cartSlice.reducer;
 import authReducer      from './slices/authSlice'; // export default authSlice.reducer;
+                                                   // it's default export rename to anything you want to
 
 // just boilerplate code... learn as it is
 const store = configureStore({

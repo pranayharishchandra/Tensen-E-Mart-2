@@ -86,3 +86,13 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
+/** URLSearchParams
+const params = new URLSearchParams('?search=hello&filter=world');
+
+console.log(params.get('search')); // Output: hello
+console.log(params.get('filter')); // Output: world
+
+params.append('page', '1');
+console.log(params.toString()); // Output: search=hello&filter=world&page=1
+
+ */
