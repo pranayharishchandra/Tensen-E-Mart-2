@@ -50,3 +50,61 @@ foo was called by bar at line 7 of example.js.
 bar was called by main at line 11 of example.js.
 The stack trace helps developers debug errors by providing information about the sequence of function calls leading up to the error. It's especially useful for identifying the root cause of an error and understanding how the control flow reached a particular point in the code.
  */
+
+
+/** next('route');
+==>  route is a keyword recognized by Express.js. When you pass 'route' as an argument to the next() function in Express.js middleware, it instructs Express to skip the remaining middleware and route handlers for the current route and move on to the next matching route handler for the incoming request.
+
+const express = require('express');
+const app = express();
+
+// Middleware to log requests
+app.use((req, res, next) => {
+  console.log(`Received ${req.method} request for ${req.url}`);
+  next();
+});
+
+// Route handler for '/example'
+app.get('/example', (req, res, next) => {
+  console.log('Executing route handler for /example');
+  if (shouldSkip) {
+    console.log('Skipping to the next matching route handler');
+    next('route'); // Skip to the next matching route handler
+  } else {
+    res.send('Response from route handler for /example');
+  }
+});
+
+// Another route handler for '/example'
+app.get('/example', (req, res) => {
+  console.log('Executing another route handler for /example');
+  res.send('Another response from /example');
+});
+
+// Route handler for '/other'
+app.get('/other', (req, res) => {
+  console.log('Executing route handler for /other');
+  res.send('Response from route handler for /other');
+});
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+In this expanded example:
+
+When a request is made to /example, the first route handler is executed. If shouldSkip is true, it skips to the next matching route handler. Otherwise, it continues to the next middleware.
+If shouldSkip is true, the second route handler for /example is skipped, and the request moves to the next matching route handler.
+If shouldSkip is false, both route handlers for /example are executed, and their responses are sent back.
+When a request is made to /other, the route handler for /other is executed, regardless of the value of shouldSkip.
+By examining the console output, you can observe which route handlers are executed and which are skipped based on the condition specified. This should provide a clearer understanding of how next('route') behaves in Express.js.
+ */
+
+
+/** next(error);
+-> this will pass the same error object to the next error handling middleware 
+-> When you call next(error) in an Express middleware function, it skips the regular middleware and route handlers and directly passes control to the next error-handling middleware
+-> When you pass an error object to next(error), the same error object will be received by the error-handling middleware (in your case, the errorHandler middleware).
+
+=> When you call next(error) in an Express middleware function, you're essentially signaling to Express that an error has occurred during the processing of the request, and you're passing that error object along the middleware chain to be handled by an error-handling middleware.
+ */

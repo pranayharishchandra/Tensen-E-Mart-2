@@ -1,3 +1,4 @@
+// Learn Express Middleware In 14 Minutes- https://youtu.be/lY6icfhap2o
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
@@ -20,6 +21,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 app.use(cookieParser());
 
+// app.use() is used to mount middleware functions in the middleware stack
+// productRoutes, userRoutes, orderRoutes, uploadRoutes are "route handlers"
 app.use('/api/products', productRoutes);
 app.use('/api/users',    userRoutes);
 app.use('/api/orders',   orderRoutes);
@@ -52,6 +55,7 @@ app.use(errorHandler);
 app.listen(port, () =>
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`)
 );
+
 
 
 /* app.use(express.urlencoded({ extended: true }));
