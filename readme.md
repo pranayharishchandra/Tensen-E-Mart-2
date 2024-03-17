@@ -1,8 +1,9 @@
 # Tensen-E-Mart eCommerce Platform 
 
-This project is MERN Stack eCommerce Platform. It has full-featured shopping cart with PayPal & credit/debit payments. 
+This project is a complete MERN Stack eCommerce Platform. 
 
 See it in action at [https://tensen-mart.onrender.com](https://tensen-e-mart-fis0.onrender.com/)
+Project 2 min tour at [https://www.youtube.com/tensen-mart](https://www.youtube.com/watch?v=yMbt_TD4IHs)
 
 
 > eCommerce platform built with the MERN stack & Redux.
