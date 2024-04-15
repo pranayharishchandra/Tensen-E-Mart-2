@@ -29,7 +29,7 @@ const userSchema = mongoose.Schema(
 
 // not necessary to make "matchPassword" method of userSchema, just done for cleanliness
 // Match "user" entered password to hashed password in database
-// this.password is the password of the "user" object which was fetched using User.findOne({email}) in userControllerx
+// this.password is the password of the "user" object which was fetched using User.findOne({email}) in userController
 userSchema.methods.matchPassword = async function (enteredPassword) {
   console.log('email: ', this.email, ', password: ', this.password, 'entered passowrd: ', enteredPassword, '\n')
   return await bcrypt.compare(enteredPassword, this.password);
