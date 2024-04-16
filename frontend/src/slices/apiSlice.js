@@ -26,9 +26,15 @@ async function baseQueryWithAuth(args, api, extra) {
 
 export const apiSlice = createApi({
   baseQuery: baseQueryWithAuth,            // Use the customized baseQuery
-  tagTypes: ['Product', 'Order', 'User'], // what type of data we are fetching from backend
-  endpoints: (builder) => ({}),          // for interacting with backend
+  tagTypes: ['Product', 'Order', 'User'], // types of data we are fetching from backend
+  endpoints: (builder) => ({}),          //* BUILDER function - we don't need to do - (try-catch), (fetching), (error-handeling), we can do all these using builder
 });
+
+/*
+* BUILDER FUNCTION : 
+In the context of the provided code snippet, builder is a parameter used in the endpoints property within the createApi function. It is a function that defines the API endpoints for interacting with the backend. 
+*The builder function allows you to specify the endpoints and their configurations without explicitly handling tasks like try-catch, fetching, and error handling, as these can be managed within the builder function itself. 
+*/
 
 /**
  * "createApi": for basically dealing with backend and fetching the data, otherwise we would have used "createSlice" if were not dealing with backend
