@@ -12,6 +12,9 @@ dotenv.config();
 
 connectDB();
 
+/**
+ * In general, "dotenv.config()" and "connectDB()" should be done "only once" in the lifecycle of your application. However, if you run the "seeder" script "independently" (outside the main application runtime), you need to ensure that both environment variables are loaded and the database is connected within that script as well.
+ */
 const importData = async () => {
   try {
     await Order.deleteMany();
