@@ -48,6 +48,13 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+/** ERROR HANDLING
+ * to avoid try-catch block we use "asyncHandler"
+ * "asyncHandler" is also one 3rd party package, but in this project we han't used that
+ * and have used our own CUSTOM-ERROR-HANDLER: with the name "asyncHandler"
+ * 
+ */
+// custom eror handling middleware
 app.use(notFound);
 app.use(errorHandler);
 
