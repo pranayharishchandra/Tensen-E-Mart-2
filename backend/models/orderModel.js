@@ -1,3 +1,5 @@
+// * schemas define the shape and constraints of your data, while models use those schemas to interact with the database.
+
 import mongoose from 'mongoose';
 
 const orderSchema = mongoose.Schema(
