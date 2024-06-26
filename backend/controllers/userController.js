@@ -8,7 +8,8 @@ import User from '../models/userModel.js';
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email }); //* "user" is the document, "User" is the model
+  // "User" is the model, which is a construct in Mongoose that provides an interface to the MongoDB database for creating, querying, updating, deleting records, etc.
 
   if (user && (await user.matchPassword(password))) {
     

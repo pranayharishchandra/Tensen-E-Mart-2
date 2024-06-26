@@ -1,14 +1,14 @@
 // Learn Express Middleware In 14 Minutes- https://youtu.be/lY6icfhap2o
-import path from 'path';
-import express from 'express';
-import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
+import path          from 'path';
+import express       from 'express';
+import dotenv        from 'dotenv';
+import cookieParser  from 'cookie-parser';
 dotenv.config();
-import connectDB from './config/db.js';
+import connectDB     from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
-import userRoutes from './routes/userRoutes.js';
-import orderRoutes from './routes/orderRoutes.js';
-import uploadRoutes from './routes/uploadRoutes.js';
+import userRoutes    from './routes/userRoutes.js';
+import orderRoutes   from './routes/orderRoutes.js';
+import uploadRoutes  from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 const port = process.env.PORT || 5000;
@@ -40,7 +40,8 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) =>
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
   );
-} else {
+} 
+else {
   const __dirname = path.resolve();
   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
   app.get('/', (req, res) => {
@@ -48,22 +49,23 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-/** ERROR HANDLING
- * to avoid try-catch block we use "asyncHandler"
- * "asyncHandler" is also one 3rd party package, but in this project we han't used that
- * and have used our own CUSTOM-ERROR-HANDLER: with the name "asyncHandler"
- * 
- */
-// custom eror handling middleware
+
+// custom eror handling middleware - use the middleware in the end, so if the 
 app.use(notFound);
 app.use(errorHandler);
 
 // The errorHandler middleware in the errorMiddleware.js file does not call next(), so the code execution will not proceed to the next middleware after it. This means that the code on line 51 in server.js that comes after app.use(errorHandler) will not be executed
 app.listen(port, () =>
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`)
+console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`)
 );
 
 
+/*
+ * ERROR HANDLING
+ - to avoid try-catch block we use "asyncHandler"
+ - "asyncHandler" is also one 3rd party package, but in this project we han't used that
+ - and have used our own CUSTOM-ERROR-HANDLER: with the name "asyncHandler"
+ */
 
 /* app.use(express.urlencoded({ extended: true }));
 
