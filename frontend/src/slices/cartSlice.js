@@ -5,9 +5,13 @@ const initialState = localStorage.getItem('cart')
   ? JSON.parse(localStorage.getItem('cart'))
   : { cartItems: [], shippingAddress: {}, paymentMethod: 'PayPal' };
 
+
+// object -> name, initialState, reducers
 const cartSlice = createSlice({
+
   name: 'cart',
-  initialState,
+  initialState, // initialState:initialState
+
   reducers: {
     addToCart: (state, action) => {
       // NOTE: we don't need user, rating, numReviews or reviews
@@ -20,7 +24,8 @@ const cartSlice = createSlice({
         state.cartItems = state.cartItems.map((x) =>
           x._id === existItem._id ? item : x
         );
-      } else {
+      } 
+      else {
         state.cartItems = [...state.cartItems, item];
       }
 

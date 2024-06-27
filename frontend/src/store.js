@@ -6,7 +6,7 @@ import cartSliceReducer from './slices/cartSlice'; // export default cartSlice.r
 import authReducer      from './slices/authSlice'; // export default authSlice.reducer;
                                                    // it's default export rename to anything you want to
 
-// just boilerplate code... learn as it is
+//* just boilerplate code... learn as it is
 const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
@@ -20,7 +20,7 @@ const store = configureStore({
 
 export default store;
 
-/**
+/*
  * store.js
 ==> 
 
@@ -33,7 +33,7 @@ export default store;
 
 
  * authSlice.js
--> in "redux" was decided that it will be the only functions which will be used for chaning state
+-> in "redux" was decided that it will be the only functions which will be used for changing state
 -> "actions" 
 -> "reducers" talk to "store" using "useDispatch"
 -> to access the "state" we need "useSelector"

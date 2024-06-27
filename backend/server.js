@@ -5,7 +5,7 @@ import dotenv        from 'dotenv';
 import cookieParser  from 'cookie-parser';
 dotenv.config();
 import connectDB     from './config/db.js';
-import productRoutes from './routes/productRoutes.js';
+import productRoutes from './routes/productRoutes.js'; // changing their default name from `router` to `productRoutes`
 import userRoutes    from './routes/userRoutes.js';
 import orderRoutes   from './routes/orderRoutes.js';
 import uploadRoutes  from './routes/uploadRoutes.js';
@@ -50,8 +50,9 @@ else {
 }
 
 
-// custom eror handling middleware - use the middleware in the end, so if the 
-app.use(notFound);
+// custom eror handling middleware - use the middleware in the end, so if there is an error, directly the control will come to error middleware
+// or if the URL don't match with any of the routes, then `notFound` middleware will be called
+app.use(notFound); // write this above since notFound will be calling the next middeware, i.e. `errorHandler` middleware
 app.use(errorHandler);
 
 // The errorHandler middleware in the errorMiddleware.js file does not call next(), so the code execution will not proceed to the next middleware after it. This means that the code on line 51 in server.js that comes after app.use(errorHandler) will not be executed
