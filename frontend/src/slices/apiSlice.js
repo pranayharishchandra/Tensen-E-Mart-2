@@ -6,7 +6,7 @@ import { BASE_URL } from '../constants';
 
 import { logout } from './authSlice'; // Import the logout action
 
-// function to fetch data from the backend
+//* function to fetch data from the backend
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
 });

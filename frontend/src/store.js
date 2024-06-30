@@ -21,6 +21,11 @@ const store = configureStore({
 export default store;
 
 /*
+ -apiSlice.js : createApi
+ -cartSlice.js: createSlice
+*/
+
+/*
  * store.js
 ==> 
 

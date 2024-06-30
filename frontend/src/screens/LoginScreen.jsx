@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect }            from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../components/Loader';
-import FormContainer from '../components/FormContainer';
+import { Form, Button, Row, Col }         from 'react-bootstrap';
+import { useDispatch, useSelector }       from 'react-redux';
+import Loader                             from '../components/Loader';
+import FormContainer                      from '../components/FormContainer';
+import { useLoginMutation }               from '../slices/usersApiSlice';
+import { setCredentials }                 from '../slices/authSlice';
+import { toast }                          from 'react-toastify';
 
-import { useLoginMutation } from '../slices/usersApiSlice';
-import { setCredentials } from '../slices/authSlice';
-import { toast } from 'react-toastify';
+
+
+// =================================================================
+
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -22,23 +26,27 @@ const LoginScreen = () => {
 
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
-  const redirect = sp.get('redirect') || '/';
+  const redirect = sp.get('redirect') || '/'; //* navigate('/login?redirect=/shipping')
+
 
   useEffect(() => {
     if (userInfo) {
-      navigate(redirect);
+      navigate(redirect); // if user already loggedin, and if he opens url of '/login', then he will be direcly navigated to either 'shipping' or 'HomeScreen', like Amazon
     }
   }, [navigate, redirect, userInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
     try {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
-    } catch (err) {
+    } 
+    catch (err) {
       toast.error(err?.data?.message || err.error);
     }
+
   };
 
   return (
@@ -86,7 +94,10 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
-/** URLSearchParams
+
+
+/*
+* URLSearchParams
 const params = new URLSearchParams('?search=hello&filter=world');
 
 console.log(params.get('search')); // Output: hello

@@ -64,8 +64,10 @@ const OrderScreen = () => {
         await payOrder({ orderId, details });
         refetch();
         toast.success('Order is paid');
-      } catch (err) {
-        toast.error(err?.data?.message || err.error);
+      } 
+      catch (err) {
+        // toast.error(err?.data?.message || err.error );
+        toast.error(err?.data?.message || err?.error || "An unknown error occurred" );
       }
     });
   }
