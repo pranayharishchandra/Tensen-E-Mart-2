@@ -77,12 +77,14 @@ export const productsApiSlice = apiSlice.injectEndpoints({
 });
 
 
-/**here in the above snippet the 
+/*
+here in the above snippet the 
 useGetProductsQuery
 is the first endpoint i.e. getProducts
 which is being exported right?
 
-and  all the hooks are respective endpoints of productApiSlice */
+and  all the hooks are respective endpoints of productApiSlice 
+*/
 export const {
   useGetProductsQuery,
   useGetProductDetailsQuery,

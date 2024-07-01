@@ -11,8 +11,12 @@ const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
 });
 
-// This function ensures that if a 401(unauthorized) error occurs, the user is automatically logged out.
-// function that acts as a `wrapper` around the baseQuery
+/*
+* Yes, if your `authMiddleware.js` on the "backend" throws a status code of "401" and this status is properly sent back to the "frontend" in the response, then the code snippet you provided in the "baseQueryWithAuth" function will indeed catch that.
+- This function ensures that if a 401(unauthorized) error occurs, the user is automatically logged out.
+- function that acts as a `wrapper` around the baseQuery
+*/
+
 async function baseQueryWithAuth(args, api, extra) {
 
   const result = await baseQuery(args, api, extra);
@@ -50,9 +54,27 @@ export const apiSlice = createApi({
 
 
 /*
-* BUILDER FUNCTION : 
-In the context of the provided code snippet, builder is a parameter used in the endpoints property within the createApi function. It is a function that defines the API endpoints for interacting with the backend. 
-*The builder function allows you to specify the endpoints and their configurations without explicitly handling tasks like try-catch, fetching, and error handling, as these can be managed within the builder function itself. 
+* BUILDER : 
+ - builder argument refers to an endpoint builder provided by RTK Query when defining API endpoints. It is used to construct the configuration for various types of requests (queries and mutations) that interact with an API.
+
+ - builder is essentially a tool provided by RTK Query that simplifies the process of defining how the application should interact with the API, handling both the request configuration and the caching strategy.
+
+
+* Purpose: 
+The builder object is used to define endpoints in a structured way. It provides methods like query and mutation which you can use to set up the respective types of operations.
+
+
+* Methods:
+* builder.query(): 
+- Used to define a query endpoint. 
+- This is for fetching data. 
+- You provide it with a function that specifies how to make the GET request.
+
+* builder.mutation(): 
+- Used to define a mutation endpoint. 
+- This is for creating, updating, or deleting data. 
+- You provide it with a function that specifies how to make POST, PUT, DELETE, etc., requests.
+
 */
 
 /**

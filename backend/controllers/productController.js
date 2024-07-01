@@ -1,13 +1,22 @@
 import asyncHandler from '../middleware/asyncHandler.js';
-import Product from '../models/productModel.js';
+import Product      from '../models/productModel.js';
 
 // @desc    Fetch all products
 // @route   GET /api/products
 // @access  Public
+
+/*
+* if you want to know what is "keyword" and "pageNumber"
+* file: "index.js" in frontend
+<Route index={true} path='/'                    element={<HomeScreen />} />
+<Route path='/search/:keyword'                  element={<HomeScreen />} />
+<Route path='/page/:pageNumber'                 element={<HomeScreen />} />
+<Route path='/search/:keyword/page/:pageNumber' element={<HomeScreen />} />
+* req.query.pageNumber 
+*/
 const getProducts = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT;
   const page = Number(req.query.pageNumber) || 1;
-
   const keyword = req.query.keyword
     ? {
         name: {
@@ -24,6 +33,8 @@ const getProducts = asyncHandler(async (req, res) => {
 
   res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
+
+
 
 // @desc    Fetch single product
 // @route   GET /api/products/:id
@@ -44,6 +55,8 @@ const getProductById = asyncHandler(async (req, res) => {
   }
 });
 
+
+
 // @desc    Create a product
 // @route   POST /api/products
 // @access  Private/Admin
@@ -63,6 +76,8 @@ const createProduct = asyncHandler(async (req, res) => {
   const createdProduct = await product.save();
   res.status(201).json(createdProduct);
 });
+
+
 
 // @desc    Update a product
 // @route   PUT /api/products/:id
@@ -90,6 +105,8 @@ const updateProduct = asyncHandler(async (req, res) => {
   }
 });
 
+
+
 // @desc    Delete a product
 // @route   DELETE /api/products/:id
 // @access  Private/Admin
@@ -104,6 +121,8 @@ const deleteProduct = asyncHandler(async (req, res) => {
     throw new Error('Product not found');
   }
 });
+
+
 
 // @desc    Create new review
 // @route   POST /api/products/:id/reviews
@@ -146,6 +165,8 @@ const createProductReview = asyncHandler(async (req, res) => {
   }
 });
 
+
+
 // @desc    Get top rated products
 // @route   GET /api/products/top
 // @access  Public
@@ -157,6 +178,8 @@ const getTopProducts = asyncHandler(async (req, res) => {
 
   res.json(products);
 });
+
+
 
 export {
   getProducts,

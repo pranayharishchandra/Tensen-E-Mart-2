@@ -4,6 +4,7 @@ import User from '../models/userModel.js';
 
 // User must be authenticated
 const protect = asyncHandler(async (req, res, next) => {
+
   let token;
 
   // Read JWT from the 'jwt' cookie
@@ -16,12 +17,15 @@ const protect = asyncHandler(async (req, res, next) => {
       req.user = await User.findById(decoded.userId).select('-password');
 
       next();
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
       res.status(401);
       throw new Error('Not authorized, token failed');
     }
-  } else {
+  } 
+
+  else {
     res.status(401);
     throw new Error('Not authorized, no token');
   }
@@ -29,12 +33,36 @@ const protect = asyncHandler(async (req, res, next) => {
 
 // User must be an admin
 const admin = (req, res, next) => {
+
   if (req.user && req.user.isAdmin) {
     next();
-  } else {
+  } 
+
+  else {
     res.status(401);
     throw new Error('Not authorized as an admin');
   }
+
 };
 
 export { protect, admin };
+
+/*
+* when 401 will be sent to frontend, then followin code snippet will be executed
+file: "apiSlice.js"
+```
+async function baseQueryWithAuth(args, api, extra) {
+
+  const result = await baseQuery(args, api, extra);
+
+  if (result.error && result.error.status === 401) {
+    api.dispatch(logout());
+  }
+
+  return result;
+}
+```
+
+* if "401" recieved, then in frontend will be logged out, clear user details
+* if (result.error && result.error.status === 401) api.dispatch(logout());
+*/
