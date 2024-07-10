@@ -20,12 +20,12 @@ userRouter.post('/logout', logoutUser);
 
 userRouter
   .route('/profile')
-  .get(protect, getUserProfile)
+  .get(protect, getUserProfile)      //* req.user._id (using the middleware)
   .put(protect, updateUserProfile);
   
 userRouter
   .route('/:id')
-  .delete(protect, admin, deleteUser)
+  .delete(protect, admin, deleteUser) //* req.params.id (using params)
   .get(protect, admin, getUserById)
   .put(protect, admin, updateUser);
 

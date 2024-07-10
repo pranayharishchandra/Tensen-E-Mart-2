@@ -14,6 +14,31 @@ const protect = asyncHandler(async (req, res, next) => {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
+/** 
+** You are not modifying the request body. Instead, you are attaching a new property named user to the req (request) object. This is a common practice in Express.js middleware to share user data or other relevant information between middleware functions or with the route handlers that execute after the middleware.
+
+
+*! After the Middleware
+{
+  method : 'GET',
+  url    : '/api/data',
+  headers: {
+    'Content-Type' : 'application/json',
+    'Authorization': 'Bearer <token>'
+  },
+  body  : {},
+  params: {},
+  query : {},
+**user: {
+    _id    : '1234567890abcdef',
+    name   : 'John Doe',
+    email  : 'john.doe@example.com',
+    isAdmin: false,
+      // other user properties, but excluding the password
+  },
+    // other properties like cookies, session, etc.
+}
+ */
       req.user = await User.findById(decoded.userId).select('-password');
 
       next();
