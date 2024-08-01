@@ -15,16 +15,16 @@ const port = process.env.PORT || 5000;
 
 connectDB();
 
-const app = express();
+const app = express(); 
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true })); // It parses incoming requests with URL-encoded payloads (like form submissions).
 app.use(cookieParser());
 
 // app.use() is used to mount middleware functions in the middleware stack
 // productRoutes, userRoutes, orderRoutes, uploadRoutes are "route handlers"
 app.use('/api/products', productRoutes);
-app.use('/api/users',    userRoutes);
+app.use('/api/users',    userRoutes);``
 app.use('/api/orders',   orderRoutes);
 app.use('/api/upload',   uploadRoutes);
 
