@@ -16,15 +16,6 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
-/*
-* Routing
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from 'react-router-dom';
-*/
-
 import { HelmetProvider }       from 'react-helmet-async';
 import PrivateRoute             from './components/PrivateRoute';
 import AdminRoute               from './components/AdminRoute';
@@ -97,6 +88,13 @@ const router = createBrowserRouter(
   )
 );
 
+/*
+*RouterProvider
+Using RouterProvider: You use RouterProvider because you're creating the router outside of the React.StrictMode block, and then providing it to the app.
+Route Setup: The routes are created dynamically with createRoutesFromElements, and these routes are managed by the RouterProvider.
+
+Yes, if you were defining your routes directly inside the React.StrictMode block using the traditional BrowserRouter, Routes, and Route components, then you wouldn't need to use RouterProvider.
+ */
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
