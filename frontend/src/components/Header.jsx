@@ -18,8 +18,6 @@ import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
 import { resetCart } from '../slices/cartSlice';
 
-import lionSvg from "../assets/lion.svg"
-
 const Header = () => {
   // state refers to the Redux store state
   const { cartItems } = useSelector((state) => state.cart);

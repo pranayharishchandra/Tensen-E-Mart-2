@@ -5,7 +5,7 @@ const initialState = {
     localStorage.getItem('userInfo')
       ? JSON.parse(localStorage.getItem('userInfo'))
       : null,
-  };
+};
 /** initial state
 initialState: {
   userInfo: {  
